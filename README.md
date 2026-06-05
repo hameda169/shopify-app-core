@@ -1,13 +1,13 @@
 # shopify-app-core
 
-Shared core packages for our Shopify apps, published under the `@my-core` scope.
+Shared core packages for our Shopify apps, published under the `@hameda169` scope.
 
 | Package | Layer | Contents |
 |---|---|---|
-| `@my-core/backend` | Koa + TypeORM server | Shopify client, token-exchange auth, api/webhook middleware, base entities (Shop, Session, Subscription, UserSettings), base webhooks (uninstalled, scopes_update, GDPR compliance), shop-info / check-app-embed routes, app factory |
-| `@my-core/frontend` | React admin (Polaris) | _planned_ |
-| `@my-core/sdk` | Storefront widget (Preact) | _planned_ |
-| `@my-core/shared` | Cross-layer types | _planned_ |
+| `@hameda169/shopify-core-backend` | Koa + TypeORM server | Shopify client, token-exchange auth, api/webhook middleware, base entities (Shop, Session, Subscription, UserSettings), base webhooks (uninstalled, scopes_update, GDPR compliance), shop-info / check-app-embed routes, app factory |
+| `@hameda169/shopify-core-frontend` | React admin (Polaris) | _planned_ |
+| `@hameda169/shopify-core-sdk` | Storefront widget (Preact) | _planned_ |
+| `@hameda169/shopify-core-shared` | Cross-layer types | _planned_ |
 
 ## Rules
 
@@ -15,12 +15,12 @@ Shared core packages for our Shopify apps, published under the `@my-core` scope.
 - Framework deps (`koa`, `typeorm`, `@shopify/shopify-api`, ...) are **peerDependencies** — the app controls their versions.
 - Packages ship compiled ESM (`dist/`); run `npm run build` before publishing.
 
-## Using `@my-core/backend` in an app
+## Using `@hameda169/shopify-core-backend` in an app
 
 ```ts
 // backend/src/database/data-source.ts
 import "dotenv/config";
-import { createCoreDataSource } from "@my-core/backend";
+import { createCoreDataSource } from "@hameda169/shopify-core-backend";
 import { AppSettings, AnalyticsEvent } from "./entities";
 
 export const AppDataSource = createCoreDataSource({
@@ -31,7 +31,7 @@ export const AppDataSource = createCoreDataSource({
 
 ```ts
 // backend/src/index.ts
-import { apiAuth, createApp, createCoreApiRoutes, createWebhookRouter, startApp } from "@my-core/backend";
+import { apiAuth, createApp, createCoreApiRoutes, createWebhookRouter, startApp } from "@hameda169/shopify-core-backend";
 import Router from "@koa/router";
 import { AppDataSource } from "./database/data-source";
 
@@ -55,17 +55,17 @@ Use [yalc](https://github.com/wclr/yalc) instead of `npm link`:
 
 ```bash
 cd packages/backend && npm run build && yalc publish
-cd <app>/backend && yalc add @my-core/backend
+cd <app>/backend && yalc add @hameda169/shopify-core-backend
 # after core changes: npm run build && yalc push
 ```
 
 ## Publishing (GitHub Packages — pending setup)
 
-The `@my-core` scope must match the GitHub org/user that owns this repo.
-Once decided, add to each package:
+The `@hameda169` scope matches the GitHub username `hameda169`, as GitHub
+Packages requires. When ready to publish, add to each package:
 
 ```json
 "publishConfig": { "registry": "https://npm.pkg.github.com" }
 ```
 
-and publish with `npm publish -w @my-core/backend`.
+and publish with `npm publish -w @hameda169/shopify-core-backend`.

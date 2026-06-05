@@ -12,7 +12,7 @@ export function setDataSource(dataSource: DataSource): void {
 
 export function getDataSource(): DataSource {
   if (_dataSource == null) {
-    throw new Error("@my-core/backend: no DataSource registered. Call createCoreDataSource(...) or setDataSource(...) at startup.");
+    throw new Error("@hameda169/shopify-core-backend: no DataSource registered. Call createCoreDataSource(...) or setDataSource(...) at startup.");
   }
   return _dataSource;
 }
