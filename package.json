@@ -1,0 +1,17 @@
+{
+  "name": "shopify-app-core",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Shared core packages for Shopify apps (@my-core/*)",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "check": "npm run check --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
