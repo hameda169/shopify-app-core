@@ -1,0 +1,11 @@
+.custom-card {
+  > .Polaris-ShadowBevel {
+    height: 100%;
+
+    > .Polaris-Box {
+      display: flex;
+      min-height: 100%;
+      min-width: 100%;
+    }
+  }
+}

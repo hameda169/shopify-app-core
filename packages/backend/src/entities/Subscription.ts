@@ -2,6 +2,8 @@ import { Column, CreateDateColumn, Entity, Index, JoinColumn, ManyToOne, Primary
 
 import { Shop } from "./Shop.js";
 
+import type { PlanName, SubscriptionStatus } from "@hameda169/shopify-core-shared";
+
 @Entity({ name: "subscription" })
 @Index(["shopId", "createdAt"])
 export class Subscription {
@@ -19,10 +21,10 @@ export class Subscription {
   shopifySubscriptionGid!: string | null;
 
   @Column({ type: "varchar" })
-  planName!: "Basic" | "Pro" | "Business";
+  planName!: PlanName;
 
   @Column({ type: "varchar", default: "pending" })
-  status!: "active" | "pending" | "cancelled" | "frozen" | "trialing";
+  status!: SubscriptionStatus;
 
   @Column({ type: "timestamptz", nullable: true })
   currentPeriodStart!: Date | null;

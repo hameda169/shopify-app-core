@@ -1,5 +1,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
+import type { PlanName, SubscriptionStatus } from "@hameda169/shopify-core-shared";
+
 @Entity({ name: "shop" })
 export class Shop {
   @PrimaryGeneratedColumn("uuid")
@@ -15,10 +17,10 @@ export class Shop {
   scopes!: string;
 
   @Column({ type: "varchar", default: "Basic" })
-  planName!: "Basic" | "Pro" | "Business";
+  planName!: PlanName;
 
   @Column({ type: "varchar", default: "active" })
-  subscriptionStatus!: "active" | "pending" | "cancelled" | "trialing";
+  subscriptionStatus!: SubscriptionStatus;
 
   @Column({ type: "timestamptz", nullable: true })
   trialEndsAt!: Date | null;

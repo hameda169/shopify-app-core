@@ -20,6 +20,9 @@
     "check": "tsc -b",
     "clean": "rm -rf dist *.tsbuildinfo"
   },
+  "dependencies": {
+    "@hameda169/shopify-core-shared": "^0.1.0"
+  },
   "peerDependencies": {
     "@koa/bodyparser": "^6.0.0",
     "@koa/router": "^14.0.0",

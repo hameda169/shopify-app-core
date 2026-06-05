@@ -5,9 +5,9 @@ Shared core packages for our Shopify apps, published under the `@hameda169` scop
 | Package | Layer | Contents |
 |---|---|---|
 | `@hameda169/shopify-core-backend` | Koa + TypeORM server | Shopify client, token-exchange auth, api/webhook middleware, base entities (Shop, Session, Subscription, UserSettings), base webhooks (uninstalled, scopes_update, GDPR compliance), shop-info / check-app-embed routes, app factory |
-| `@hameda169/shopify-core-frontend` | React admin (Polaris) | _planned_ |
-| `@hameda169/shopify-core-sdk` | Storefront widget (Preact) | _planned_ |
-| `@hameda169/shopify-core-shared` | Cross-layer types | _planned_ |
+| `@hameda169/shopify-core-frontend` | React admin (Polaris) | api clients (billing, settings, user-settings, analytics, embed), react-query hooks, CustomCard/SaveBar/PolarisRouterLink components, parameterized AppLayout, color utils |
+| `@hameda169/shopify-core-sdk` | Storefront utils (framework-free) | device detection, uuid, postEvent (sendBeacon+fetch), fetchConfig, product-form DOM helpers, Shopify window typings |
+| `@hameda169/shopify-core-shared` | Cross-layer types | DeviceType, PlanName, SubscriptionStatus, DateRange, BillingInfo, EmbedStatus, CollectEventPayload |
 
 ## Rules
 
