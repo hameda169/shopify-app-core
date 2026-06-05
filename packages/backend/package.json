@@ -45,5 +45,13 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hameda169/shopify-app-core.git",
+    "directory": "packages/backend"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }

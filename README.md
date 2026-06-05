@@ -59,10 +59,10 @@ cd <app>/backend && yalc add @hameda169/shopify-core-backend
 # after core changes: npm run build && yalc push
 ```
 
-## Publishing (GitHub Packages — pending setup)
+## Publishing (GitHub Packages)
 
 The `@hameda169` scope matches the GitHub username `hameda169`, as GitHub
-Packages requires. When ready to publish, add to each package:
+Packages requires. Each package declares:
 
 ```json
 "publishConfig": { "registry": "https://npm.pkg.github.com" }
