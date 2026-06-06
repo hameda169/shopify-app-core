@@ -1,6 +1,6 @@
 {
   "name": "@hameda169/shopify-core-backend",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared Koa + TypeORM backend core for Shopify apps: auth, sessions, base entities, base webhooks",
   "license": "UNLICENSED",
   "type": "module",

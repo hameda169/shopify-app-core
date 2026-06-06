@@ -1,3 +1,4 @@
+/// <reference types="@koa/bodyparser" preserve="true" />
 import "reflect-metadata";
 
 // Entities

@@ -1,6 +1,6 @@
 {
   "name": "@hameda169/shopify-core-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Framework-free storefront SDK core: device detection, analytics event posting, config fetching, DOM helpers",
   "license": "UNLICENSED",
   "type": "module",
