@@ -5,3 +5,4 @@ dist/
 .env.*
 !.env.sample
 .DS_Store
+.npmrc
