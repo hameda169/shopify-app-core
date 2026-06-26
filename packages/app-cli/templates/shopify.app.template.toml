@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "{{ env.SHOPIFY_API_KEY }}"
+application_url = "{{ env.SHOPIFY_APP_URL }}"
+embedded = true
+name = "{{ env.SHOPIFY_APP_NAME }}"
+handle = "{{ env.SHOPIFY_APP_HANDLE }}"
+
+[build]
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2025-10"
+
+[[webhooks.subscriptions]]
+topics = [ "app/scopes_update" ]
+uri = "{{ env.SHOPIFY_WEBHOOKS_BASE_URL }}/webhooks/app/scopes_update"
+
+[[webhooks.subscriptions]]
+topics = [ "app/uninstalled" ]
+uri = "{{ env.SHOPIFY_WEBHOOKS_BASE_URL }}/webhooks/app/uninstalled"
+
+[[webhooks.subscriptions]]
+compliance_topics = [ "customers/data_request", "customers/redact", "shop/redact" ]
+uri = "{{ env.SHOPIFY_WEBHOOKS_BASE_URL }}/webhooks/app/compliance"
+
+[access_scopes]
+scopes = "read_products,read_themes"
+
+[auth]
+redirect_urls = [
+  "{{ env.SHOPIFY_APP_URL }}"
+]
+
+[pos]
+embedded = false

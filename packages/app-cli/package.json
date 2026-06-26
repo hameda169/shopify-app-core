@@ -1,0 +1,50 @@
+{
+  "name": "@hameda169/shopify-core-app-cli",
+  "version": "0.1.0",
+  "description": "Build/deploy tooling and config templates for the Shopify CLI app folder (theme app extensions): env-substituting dist builder and base templates",
+  "license": "UNLICENSED",
+  "type": "module",
+  "bin": {
+    "shopify-core-app": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "check": "tsc -b",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "fs-extra": "^11.3.3"
+  },
+  "peerDependencies": {
+    "@shopify/cli": ">=3.80.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hameda169/shopify-app-core.git",
+    "directory": "packages/app-cli"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}

@@ -1,0 +1,13 @@
+{% # theme-check-disable AssetSizeAppBlockJavaScript %}
+<script>
+    console.log("Hello from the {{ env.SHOPIFY_EXTENSION_BLOCK_NAME }} liquid file!");
+</script>
+
+{% schema %}
+{
+  "name": "{{ env.SHOPIFY_EXTENSION_BLOCK_NAME }}",
+  "target": "head",
+  "settings": [],
+  "javascript": "main.js"
+}
+{% endschema %}
