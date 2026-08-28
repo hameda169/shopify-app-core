@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build -w @hameda169/shopify-core-shared && npm run build -w @hameda169/shopify-core-backend -w @hameda169/shopify-core-frontend -w @hameda169/shopify-core-sdk",
+    "build": "npm run build -w @hameda169/shopify-core-shared && npm run build -w @hameda169/shopify-core-backend -w @hameda169/shopify-core-frontend -w @hameda169/shopify-core-sdk -w @hameda169/shopify-core-app-cli",
     "check": "npm run check --workspaces --if-present",
     "clean": "npm run clean --workspaces --if-present"
   },
