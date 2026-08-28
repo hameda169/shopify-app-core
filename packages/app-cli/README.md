@@ -12,8 +12,39 @@ that had drifted across apps.
   into an out dir (default `dist/`), substituting every `{{ env.NAME }}` with the
   matching variable from `.env` / `process.env`. Optionally renames the SDK block
   file to `$SHOPIFY_EXTENSION_NAME.liquid`.
-- **`shopify-core-app deploy`** — runs `shopify app deploy -f --path <out>`.
-  Pass `--build` to build first.
+- **`shopify-core-app deploy`** — runs `shopify app deploy --path <out>`,
+  passing `--allow-updates` by default. Pass `--build` to build first.
+
+## Requires Shopify CLI 4+
+
+CLI 4 removed the blanket `--force` flag this package used to pass, splitting it
+into `--allow-updates` (create/update) and `--allow-deletes` (remove). The peer
+range is therefore `@shopify/cli@^4.0.0`; on CLI 3 the deploy will fail on the
+unknown flags.
+
+| flag | default | meaning |
+| --- | --- | --- |
+| `--allow-updates` / `--no-allow-updates` | on | permit creating and updating app config + extensions |
+| `--allow-deletes` | off | permit deleting config/extensions absent from the build |
+| `--source-control-url <url>` | – | commit permalink recorded against the app version |
+| `--no-release` | off | create the version without releasing it to users |
+
+Leave `--allow-deletes` off in unattended pipelines: `deploy` ships the whole
+project as one unit, so a partial build would delete live extensions from
+merchant stores. Opt in only for deliberate manual runs.
+
+## Non-interactive auth
+
+Authenticate CI with an **app automation token** from the Dev Dashboard
+(Settings -> App Automation Token), exported as `SHOPIFY_APP_AUTOMATION_TOKEN`.
+It supersedes the Partner Dashboard's `SHOPIFY_CLI_PARTNERS_TOKEN`, is scoped to
+a single app, and expires after 1/3/6 months — rotate it before it lapses or CI
+starts failing.
+
+```bash
+export SHOPIFY_APP_AUTOMATION_TOKEN="..."
+yarn deploy
+```
 
 ## Per-app contract
 

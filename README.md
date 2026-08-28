@@ -69,7 +69,11 @@ the scripts in `shopify-app/package.json`:
 `build` renders `extensions/` and `shopify.app.toml` into the out dir (default
 `dist/`), substituting every `{{ env.NAME }}` from `.env` / `process.env`, and
 renames the SDK block to `$SHOPIFY_EXTENSION_NAME.liquid`. `deploy` runs
-`shopify app deploy -f --path <out>`.
+`shopify app deploy --path <out> --allow-updates`.
+
+Requires **Shopify CLI 4+** (CLI 4 replaced `--force` with `--allow-updates` /
+`--allow-deletes`). Authenticate CI with `SHOPIFY_APP_AUTOMATION_TOKEN` from the
+Dev Dashboard, which supersedes `SHOPIFY_CLI_PARTNERS_TOKEN`.
 
 Build order matters: `build` empties the out dir, so compile SDK assets **after**
 `build:dist` and **before** `deploy`.

@@ -1,6 +1,6 @@
 {
   "name": "@hameda169/shopify-core-app-cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Build/deploy tooling and config templates for the Shopify CLI app folder (theme app extensions): env-substituting dist builder and base templates",
   "license": "UNLICENSED",
   "type": "module",
@@ -29,7 +29,7 @@
     "fs-extra": "^11.3.3"
   },
   "peerDependencies": {
-    "@shopify/cli": ">=3.80.0"
+    "@shopify/cli": "^4.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",

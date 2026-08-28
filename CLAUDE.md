@@ -17,5 +17,9 @@
   theme-extension / `shopify.app.toml` templates, replacing each app's local
   `scripts/build-dist.ts`. It ships `templates/` alongside `dist/`, so bump and
   rebuild it when a template changes, not just when `src/` changes.
+- `app-cli` requires **Shopify CLI 4+**: CLI 4 removed `--force`, so deploy passes
+  `--allow-updates` (and `--allow-deletes` only on explicit opt-in — never default
+  it on in CI, it deletes live extensions). CI authenticates with
+  `SHOPIFY_APP_AUTOMATION_TOKEN`, not the deprecated `SHOPIFY_CLI_PARTNERS_TOKEN`.
 - Migrations always live in the app, never in core. Framework deps are peerDependencies in core.
 - Publishing: bump version, `yarn build` / `npm run build`, `npm publish -w <pkg>` (publishConfig points at npm.pkg.github.com).
