@@ -12,5 +12,10 @@
 
 ## Core packages (shopify-app-core)
 - Shared code lives in `@hameda169/shopify-core-{backend,frontend,sdk,shared}`.
+- `@hameda169/shopify-core-app-cli` is the tooling package for the app's `shopify-app/`
+  folder: it provides the `shopify-core-app build|deploy` binary and the base
+  theme-extension / `shopify.app.toml` templates, replacing each app's local
+  `scripts/build-dist.ts`. It ships `templates/` alongside `dist/`, so bump and
+  rebuild it when a template changes, not just when `src/` changes.
 - Migrations always live in the app, never in core. Framework deps are peerDependencies in core.
 - Publishing: bump version, `yarn build` / `npm run build`, `npm publish -w <pkg>` (publishConfig points at npm.pkg.github.com).
